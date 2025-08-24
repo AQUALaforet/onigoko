@@ -1,0 +1,1 @@
+$scoreboard players set onik settings $(oni_player)
