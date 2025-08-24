@@ -1,0 +1,4 @@
+title @a title {"text":"START","color":"yellow"}
+#execute if score mode settings matches 0..4 if score inv settings matches 0 if score speed settings matches 1 run tellraw @a {"color":"gray","text":"注意:ホットバーの2番目にスロットを置かないことを推奨します。\nアイテムが配布されそのアイテムの時間を消費してしまいます。"}
+#execute if score mode settings matches 0..4 if score inv settings matches 1 if score speed settings matches 0 run tellraw @a {"color":"gray","text":"注意:ホットバーの8番目にスロットを置かないことを推奨します。\nアイテムが配布されそのアイテムの時間を消費してしまいます。"}
+#execute if score mode settings matches 0..4 if score inv settings matches 0 if score speed settings matches 0 run tellraw @a {"color":"gray","text":"注意:ホットバーの2番目と8番目にスロットを置かないことを推奨します。\nアイテムが配布されそのアイテムの時間を消費してしまいます。"}

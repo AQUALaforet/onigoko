@@ -1,0 +1,1 @@
+scoreboard players set @a[scores={speed2=..-1}] speed2 9

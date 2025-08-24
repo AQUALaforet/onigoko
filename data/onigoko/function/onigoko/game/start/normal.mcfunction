@@ -1,0 +1,1 @@
+effect give @a[team=!oni] weakness 1 10 true

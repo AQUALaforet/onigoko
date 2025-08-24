@@ -1,0 +1,1 @@
+execute as @a at @s if entity @s[scores={inv2=..-1}] run scoreboard players set @s inv2 9
