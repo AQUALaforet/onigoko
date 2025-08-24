@@ -1,0 +1,71 @@
+{
+  "type": "minecraft:multi_action",
+  "title": "鬼ごっこ v1.2.0a",
+  "external_title": "",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "text": "ゲームコマンド"
+      }
+    }
+  ],
+  "can_close_with_escape": true,
+  "actions": [
+    {
+      "label": {
+        "text": "ゲーム開始",
+        "color": "green"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_start set 1"
+      }
+    },
+    {
+      "label": {
+        "text": "リセット(強制停止)",
+        "color": "red"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_stop set 1"
+      }
+    },
+    {
+      "label": {
+        "text": "鬼を抽選",
+        "color": "yellow"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_onikime set 1"
+      }
+    },
+    {
+      "label": {
+        "text": "全員TP",
+        "color": "yellow"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_tpspawn set 1"
+      }
+    },
+    {
+      "label": {
+        "text": "設定",
+        "color": "white"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:show_dialog",
+        "dialog": "onigoko:settings/main"
+      }
+    }
+  ]
+}

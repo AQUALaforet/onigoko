@@ -1,0 +1,19 @@
+{
+    "criteria": {
+      "attack_player": {
+        "trigger": "minecraft:player_hurt_entity",
+        "conditions": {
+          "player": {
+            "team": "nge"
+          },
+          "entity": {
+            "type": "minecraft:player",
+            "team": "ice"
+          }
+        }
+      }
+    },
+    "rewards": {
+      "function": "onigoko:system/advancement/nge_attack_ice"
+    }
+  }

@@ -1,0 +1,22 @@
+{
+    "criteria": {
+      "ahurt_player": {
+        "trigger": "minecraft:entity_hurt_player",
+        "conditions": {
+          "player": {
+            "type": "minecraft:player",
+            "team": "ice"
+          },
+          "damage": {
+            "source_entity": {
+              "type": "minecraft:player",
+              "team": "nge"
+            }
+          }
+        }
+      }
+    },
+    "rewards": {
+      "function": "onigoko:system/advancement/nge_hurt_ice"
+    }
+  }

@@ -1,0 +1,70 @@
+{
+  "type": "minecraft:multi_action",
+  "title": "鬼ごっこ v1.2.0a",
+  "external_title": "",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "contents": "設定 - モード選択"
+    }
+  ],
+  "can_close_with_escape": true,
+  "actions": [
+    {
+      "label": "増え鬼",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_mode_0 set 1"
+      }
+    },
+    {
+      "label": "氷鬼",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_mode_1 set 1"
+      }
+    },
+    {
+      "label": "代わり鬼",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_mode_2 set 1"
+      }
+    },
+    {
+      "label": "ケイドロ",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_mode_3 set 1"
+      }
+    },
+    {
+      "label": "通常鬼",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_mode_4 set 1"
+      }
+    },
+    {
+      "label": "TNT Tag",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_mode_5 set 1"
+      }
+    },
+    {
+      "label": "戻る",
+      "width": 120,
+      "action": {
+        "type": "minecraft:show_dialog",
+        "dialog": "onigoko:settings/main"
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "type": "minecraft:multi_action",
+  "title": "鬼ごっこ v1.2.0a",
+  "external_title": "",
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "contents": {
+        "text": "設定"
+      }
+    }
+  ],
+  "can_close_with_escape": true,
+  "actions": [
+    {
+      "label": {
+        "text": "モード選択"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:show_dialog",
+        "dialog": "onigoko:settings/mode"
+      }
+    },
+    {
+      "label": {
+        "text": "時間"
+      },
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_settings_time set 1"
+      }
+    },
+    {
+      "label": "鬼",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_settings_oni set 1"
+      }
+    },
+    {
+      "label": "アイテム",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_settings_item set 1"
+      }
+    },
+    {
+      "label": "その他",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_settings_other set 1"
+      }
+    },
+    {
+      "label": "設置用アイテム取得",
+      "width": 120,
+      "action": {
+        "type": "minecraft:run_command",
+        "command": "trigger trigger_settings_setitem set 1"
+      }
+    },
+    {
+      "label": "戻る",
+      "width": 120,
+      "action": {
+        "type": "minecraft:show_dialog",
+        "dialog": "onigoko:menu"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "onigoko:oni_attack_nge",
+  "criteria": {
+    "hurt_player": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "player": {
+          "type": "minecraft:player",
+          "team": "nge"
+        },
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:player",
+            "team": "oni"
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "onigoko:system/advancement/oni_hurt_nge"
+  }
+}
