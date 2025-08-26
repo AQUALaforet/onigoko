@@ -1,4 +1,0 @@
-dialog show @s {"type":"minecraft:multi_action","title":"鬼ごっこ v1.2.0a","external_title":"","body":[{"type":"minecraft:plain_message","contents":{"text":"設定 - 鬼 - 人数変更\n"}}],"inputs":[{"type":"minecraft:number_range","key":"oni_player","label":"人数","start":1,"end":100,"step":1,"initial":1}],"can_close_with_escape":true,"actions":[{"label":"戻る","width":120,"action":{"type":"minecraft:run_command","command":"trigger trigger_settings_oni set 1"}},{"label":"完了","width":120,"action":{"type":"minecraft:dynamic/run_command","template":"trigger trigger_settings_set_oni_player set $(oni_player)"}}]}
-scoreboard players enable @s trigger_settings_set_oni_player
-scoreboard players enable @s trigger_settings_oni
-scoreboard players enable @s trigger_settings_oni_player
