@@ -55,8 +55,7 @@ execute if score game settings matches 1 if score countdown time matches ..0 if 
 execute if score game settings matches 1 if score countdown time matches ..0 if score countdown2 time matches ..0 run scoreboard players set game settings 2
 execute if score nge settings matches 1 if score oni settings matches 0 run tellraw @a ["",{"color":"yellow","text":"ゲーム終了"}," ",{"color":"aqua","selector":"@a[team=nge]"},{"color":"yellow","text":"の勝利!"}]
 execute if score nge settings matches 0 if score oni settings matches 0 run tellraw @a ["",{"color":"yellow","text":"ゲーム終了"}," ",{"color":"yellow","text":"勝者はいませんでした。"}]
-execute if score nge settings matches 0..1 if score oni settings matches 0 run execute positioned as @e[type=armor_stand,tag=lobbyspawn] run tp @a ~ ~ ~
+execute if score nge settings matches 0..1 if score oni settings matches 0 run scoreboard players set end settings 1
 execute if score nge settings matches 0..1 if score oni settings matches 0 run team leave @a
-execute if score nge settings matches 0..1 if score oni settings matches 0 run gamemode adventure @a
 execute if score nge settings matches 0..1 if score oni settings matches 0 run execute as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 1 0.5 1
 execute if score nge settings matches 0..1 if score oni settings matches 0 run scoreboard players set game settings 0

@@ -1,5 +1,3 @@
-tag @r[tag=onik] add onir
-team join oni @a[tag=onir]
-execute if entity @a[tag=onir] run tellraw @a ["",{"color":"yellow","text":"今回の鬼は"},{"color":"red","selector":"@a[tag=onir]"},{"color":"yellow","text":"さんです。"}]
-tag @a[tag=onir] remove onir
+scoreboard players operation repeat_select_oni settings = onik settings
+execute if score repeat_select_oni settings matches 1.. run function onigoko:system/select_oni/main
 execute unless entity @a[tag=onik] run tellraw @s {"color":"red","text":"エラー:鬼を選定できませんでした。"}

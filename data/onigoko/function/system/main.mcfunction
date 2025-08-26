@@ -134,6 +134,9 @@ execute store result storage game:settings min int 1 run scoreboard players get 
 execute store result storage game:settings sec int 1 run scoreboard players get sec time
 execute store result storage game:settings set_min int 1 run scoreboard players get min min
 execute store result storage game:settings set_sec int 1 run scoreboard players get sec sec
+execute store result storage game:settings auto_start_player int 1 run scoreboard players get auto_start_player settings
+execute store result storage game:settings auto_start_count int 1 run scoreboard players get auto_start_sec time
+execute store result storage game:settings end_sec int 1 run scoreboard players get end_sec time
 execute if score game settings matches 0 run function onigoko:onigoko/game/sidebar/prepare with storage game:settings
 execute if score game settings matches 1 run function onigoko:onigoko/game/sidebar/wait_ingame with storage game:settings
 execute if score game settings matches 2 run function onigoko:onigoko/game/sidebar/ingame with storage game:settings
@@ -220,3 +223,35 @@ execute as @a[scores={trigger_inv_disable=1..}] at @s run scoreboard players set
 execute as @a[scores={trigger_inv_enable=1..}] at @s run scoreboard players set @s trigger_inv_enable 0
 execute as @a[scores={trigger_speed_disable=1..}] at @s run scoreboard players set @s trigger_speed_disable 0
 execute as @a[scores={trigger_speed_enable=1..}] at @s run scoreboard players set @s trigger_speed_enable 0
+
+execute as @a at @s if score @s trigger_auto_start matches 1 run function onigoko:system/settings/auto_start
+execute as @a[scores={trigger_auto_start=1..}] at @s run scoreboard players set @s trigger_auto_start 0
+
+execute as @a at @s if score @s trigger_auto_start_enable matches 1 run function onigoko:system/settings/auto_start/enable
+execute as @a at @s if score @s trigger_auto_start_disable matches 1 run function onigoko:system/settings/auto_start/disable
+execute as @a at @s if score @s trigger_adjust_oni_enable matches 1 run function onigoko:system/settings/adjust_oni/enable
+execute as @a at @s if score @s trigger_adjust_oni_disable matches 1 run function onigoko:system/settings/adjust_oni/disable
+
+execute as @a[scores={trigger_auto_start_enable=1..}] at @s run scoreboard players set @s trigger_auto_start_enable 0
+execute as @a[scores={trigger_auto_start_disable=1..}] at @s run scoreboard players set @s trigger_auto_start_disable 0
+execute as @a[scores={trigger_adjust_oni_enable=1..}] at @s run scoreboard players set @s trigger_adjust_oni_enable 0
+execute as @a[scores={trigger_adjust_oni_disable=1..}] at @s run scoreboard players set @s trigger_adjust_oni_disable 0
+
+execute as @a at @s if score @s trigger_auto_start_player matches 1 run function onigoko:system/settings/auto_start_player
+execute as @a at @s if score @s trigger_auto_start_time matches 1 run function onigoko:system/settings/auto_start_time
+execute as @a at @s if score @s trigger_end_time matches 1 run function onigoko:system/settings/end_time
+
+execute as @a[scores={trigger_auto_start_player=1..}] at @s run scoreboard players set @s trigger_auto_start_player 0
+execute as @a[scores={trigger_auto_start_time=1..}] at @s run scoreboard players set @s trigger_auto_start_time 0
+execute as @a[scores={trigger_end_time=1..}] at @s run scoreboard players set @s trigger_end_time 0
+
+execute as @a at @s if score @s trigger_auto_start_player_set matches 2.. run function onigoko:system/settings/set_score/auto_start_player_set
+execute as @a at @s if score @s trigger_auto_start_time_set matches 2.. run function onigoko:system/settings/set_score/auto_start_time_set
+execute as @a at @s if score @s trigger_end_time_set matches 0.. run function onigoko:system/settings/set_score/end_time_set
+
+execute if score auto_start settings matches 0 if score game settings matches 0 if score end settings matches 0 run function onigoko:system/auto_start/main
+
+execute if score end settings matches 1 run function onigoko:system/end/start
+execute if score end settings matches 2 run function onigoko:system/end/main
+
+execute if score adjust_oni settings matches 0 run function onigoko:system/adjust_oni/main

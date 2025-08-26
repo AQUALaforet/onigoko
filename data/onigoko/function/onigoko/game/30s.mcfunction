@@ -27,14 +27,7 @@ execute if score speed settings matches 0 if score mode settings matches 4 run s
 execute if score speed settings matches 0 if score mode settings matches 4 run scoreboard players set @a[team=oni] speed 0
 execute if score speed settings matches 0 if score mode settings matches 4 run scoreboard players operation @a[team=oni] speed2 = ksp2 settings
 execute if score speed settings matches 0 if score mode settings matches 4 run scoreboard players operation @a[team=oni] speed3 = ksp3 settings
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 2 run team join oni @r[limit=2,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 3 run team join oni @r[limit=3,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 4 run team join oni @r[limit=4,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 5 run team join oni @r[limit=5,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 6 run team join oni @r[limit=6,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 7 run team join oni @r[limit=7,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 8 run team join oni @r[limit=8,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 9 run team join oni @r[limit=9,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 if score onik settings matches 10 run team join oni @r[limit=10,team=nge]
-execute if score mode settings matches 4 if score random settings matches 0 run tellraw @a ["",{"color":"yellow","text":"今回の鬼は"},{"color":"red","selector":"@a[team=oni]"},{"color":"yellow","text":"さんです。"}]
+execute if score random settings matches 0 if score mode settings matches 4 run scoreboard players operation oni_random settings = onik settings
+execute if score random settings matches 0 if score mode settings matches 4 run function onigoko:system/select_oni/random
+#execute if score mode settings matches 4 if score random settings matches 0 run tellraw @a ["",{"color":"yellow","text":"今回の鬼は"},{"color":"red","selector":"@a[team=oni]"},{"color":"yellow","text":"さんです。"}]
 #execute if score mode settings matches 5 run tellraw @a ["",{"color":"yellow","text":"今回爆弾を所持しているのは"},{"color":"red","selector":"@a[team=oni]"},{"color":"yellow","text":"さんです。"}]

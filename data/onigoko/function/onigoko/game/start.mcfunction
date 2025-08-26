@@ -1,16 +1,9 @@
 title @a times 0 25 0
+team leave @a
 #ランダム鬼指定
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 1 run team join oni @r[limit=1]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 2 run team join oni @r[limit=2]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 3 run team join oni @r[limit=3]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 4 run team join oni @r[limit=4]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 5 run team join oni @r[limit=5]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 6 run team join oni @r[limit=6]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 7 run team join oni @r[limit=7]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 8 run team join oni @r[limit=8]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 9 run team join oni @r[limit=9]
-execute if score random settings matches 0 if score mode settings matches 0..3 if score onik settings matches 10 run team join oni @r[limit=10]
-execute if score mode settings matches 0..3 if score random settings matches 0 unless score count settings matches ..1 run tellraw @a ["",{"color":"yellow","text":"今回の鬼は"},{"color":"red","selector":"@a[team=oni]"},{"color":"yellow","text":"さんです。"}]
+execute if score random settings matches 0 if score mode settings matches 0..3 run scoreboard players operation oni_random settings = onik settings
+execute if score random settings matches 0 if score mode settings matches 0..3 run function onigoko:system/select_oni/random
+#execute if score mode settings matches 0..3 if score random settings matches 0 unless score count settings matches ..1 run tellraw @a ["",{"color":"yellow","text":"今回の鬼は"},{"color":"red","selector":"@a[team=oni]"},{"color":"yellow","text":"さんです。"}]
 #鬼以外または全員を逃指定
 execute if score mode settings matches 0..3 run team join nge @a[team=!oni,gamemode=!spectator]
 execute if score mode settings matches 4 if score random settings matches 0 run team join nge @a[gamemode=!spectator]

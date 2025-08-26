@@ -1,0 +1,1 @@
+function onigoko:onigoko/game/stop

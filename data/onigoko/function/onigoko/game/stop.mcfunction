@@ -13,4 +13,13 @@ execute as @a at @s run attribute @s jump_strength base reset
 execute as @a at @s run attribute @s knockback_resistance base reset
 schedule clear onigoko:onigoko/countdown/start/count
 
-gamemode adventure @a[gamemode=!creative]
+
+schedule clear onigoko:onigoko/countdown/1
+schedule clear onigoko:onigoko/countdown/2
+schedule clear onigoko:onigoko/countdown/3
+schedule clear onigoko:onigoko/countdown/4
+schedule clear onigoko:onigoko/countdown/5
+schedule clear onigoko:onigoko/countdown/10
+tellraw @a {"color":"red","text":"ゲームを強制終了しました。"}
+execute positioned as @e[type=armor_stand,tag=lobbyspawn] run tp @a ~ ~ ~
+gamemode adventure @a[gamemode=!spectator]

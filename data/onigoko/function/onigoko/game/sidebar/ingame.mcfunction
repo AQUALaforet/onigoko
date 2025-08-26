@@ -1,6 +1,8 @@
+scoreboard players reset prepare_-1 game
 scoreboard players reset prepare_0 game
 scoreboard players reset prepare_1 game
 scoreboard players reset prepare_2 game
+scoreboard players reset prepare_-1 game
 scoreboard players set ingame_0 game 0
 execute if score mode settings matches 1 run scoreboard players set ingame_1 game 1
 execute if score mode settings matches 3 run scoreboard players set ingame_1 game 1

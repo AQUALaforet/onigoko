@@ -1,0 +1,11 @@
+execute if score count settings matches 1..7 run scoreboard players set onik settings 1
+execute if score count settings matches 8..14 run scoreboard players set onik settings 2
+execute if score count settings matches 15..21 run scoreboard players set onik settings 3
+execute if score count settings matches 22..28 run scoreboard players set onik settings 4
+execute if score count settings matches 29..35 run scoreboard players set onik settings 5
+execute if score count settings matches 36..42 run scoreboard players set onik settings 6
+execute if score count settings matches 43..49 run scoreboard players set onik settings 7
+execute if score count settings matches 50..56 run scoreboard players set onik settings 8
+execute if score count settings matches 57..63 run scoreboard players set onik settings 9
+execute if score count settings matches 64..70 run scoreboard players set onik settings 10
+execute if score count settings matches 71..77 run scoreboard players set onik settings 11

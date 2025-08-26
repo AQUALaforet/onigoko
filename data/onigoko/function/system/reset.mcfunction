@@ -1,5 +1,5 @@
 #読み込み成功メッセージ
-tellraw @a ["",{"color":"green","text":"✔鬼ごっこデータパックの読み込みに成功しました。\nCreate by Forest_AQUA v1.2.0a"},{"text":"\n\n"}]
+tellraw @a ["",{"color":"green","text":"✔鬼ごっこデータパックの読み込みに成功しました。\nCreate by Forest_AQUA v1.2.1a"},{"text":"\n\n"}]
 execute as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 2 1
 
 #特殊アイテム削除
@@ -36,6 +36,7 @@ scoreboard players set min time 0
 scoreboard players set sec time 0
 scoreboard players set sec2 time 1
 scoreboard players set game settings 0
+scoreboard players set end settings 0
 execute unless score inv settings matches 1 run scoreboard players set inv settings 0
 execute unless score speed settings matches 1 run scoreboard players set speed settings 0
 execute unless score timeadd settings matches 1 run scoreboard players set timeadd settings 0
@@ -44,6 +45,12 @@ execute unless score poison settings matches 1 run scoreboard players set poison
 execute unless score glowing settings matches 1 run scoreboard players set glowing settings 0
 execute unless score random settings matches 0 run scoreboard players set random settings 1
 execute unless score onik settings matches 2.. run scoreboard players set onik settings 1
+execute unless score auto_start settings matches 0..1 run scoreboard players set auto_start settings 1
+execute unless score adjust_oni settings matches 0..1 run scoreboard players set adjust_oni settings 0
+execute unless score auto_start_time settings matches 0.. run scoreboard players set auto_start_time settings 60
+execute unless score auto_start_player settings matches 0.. run scoreboard players set auto_start_player settings 4
+execute unless score auto_start_count settings matches 0 run scoreboard players set auto_start_count settings 0
+execute unless score end_time settings matches 0.. run scoreboard players set end_time settings 60
 execute unless score ninv3 settings matches 0..14 unless score ninv3 settings matches 16.. run scoreboard players set ninv3 settings 15
 execute unless score ninv2 settings matches 1.. run scoreboard players set ninv2 settings 0
 execute unless score oinv3 settings matches 0..4 unless score oinv3 settings matches 6.. run scoreboard players set oinv3 settings 5
@@ -277,3 +284,15 @@ scoreboard objectives add trigger_inv_disable trigger
 scoreboard objectives add trigger_inv_enable trigger
 scoreboard objectives add trigger_speed_disable trigger
 scoreboard objectives add trigger_speed_enable trigger
+scoreboard objectives add trigger_auto_start trigger
+scoreboard objectives add trigger_auto_start_enable trigger
+scoreboard objectives add trigger_auto_start_disable trigger
+scoreboard objectives add trigger_adjust_oni_enable trigger
+scoreboard objectives add trigger_adjust_oni_disable trigger
+scoreboard objectives add trigger_auto_start_time trigger
+scoreboard objectives add trigger_auto_start_player trigger
+
+scoreboard objectives add trigger_auto_start_player_set trigger
+scoreboard objectives add trigger_auto_start_time_set trigger
+scoreboard objectives add trigger_end_time trigger
+scoreboard objectives add trigger_end_time_set trigger

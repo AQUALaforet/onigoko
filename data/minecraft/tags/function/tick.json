@@ -1,6 +1,6 @@
 {
     "replace": false,
     "values": [
-        "onigoko:onigoko/main"
+        "onigoko:system/main"
     ]
 }
