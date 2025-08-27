@@ -14,3 +14,6 @@
 ```/function onigoko:command/start```
 - 強制終了
 ```/function onigoko:command/stop```
+
+# LICENSE
+The software is licensed under the the BSD 2-clause "Simplified" License.
