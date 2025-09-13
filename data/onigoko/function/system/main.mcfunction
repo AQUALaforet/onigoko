@@ -23,6 +23,8 @@ execute if entity @e[type=minecraft:vex,tag=keidorospawnremove] run kill @e[type
 kill @e[type=vex,tag=keidorospawnremove]
 execute if entity @e[type=minecraft:vex,tag=keidoroexitremove] run kill @e[type=minecraft:armor_stand,tag=keidoroexit]
 kill @e[type=vex,tag=keidoroexitremove]
+execute if entity @e[type=minecraft:vex,tag=keidoroexitngeremove] run kill @e[type=minecraft:armor_stand,tag=keidoroexitnge]
+kill @e[type=vex,tag=keidoroexitngeremove]
 execute as @a at @s run attribute @s attack_speed base set 100
 
 #エフェクト
@@ -279,3 +281,8 @@ execute as @a at @s if score water settings matches 0 if score death settings ma
 execute as @a at @s if score water settings matches 0 if score death settings matches 0 if block ~ ~ ~ water run effect give @s wither 1 1 true
 
 execute as @a at @s if score water settings matches 0 if score death settings matches 0 unless block ~ ~ ~ water run effect clear @s wither
+
+execute positioned as @e[type=armor_stand,tag=keidoroexit] if entity @p[team=!ice,distance=..0.5] run tag @p[team=!ice,distance=..1] add exitnge
+execute unless score mode settings matches 3 positioned as @e[type=armor_stand,tag=keidoroexit] if entity @p[team=ice,distance=..0.5] run tag @p[team=ice,distance=..1] add exitnge
+execute positioned as @e[type=armor_stand,tag=keidoroexitnge] run tp @a[tag=exitnge] ~ ~ ~
+tag @a[tag=exitnge] remove exitnge

@@ -6,3 +6,4 @@ execute as @a[scores={deathcount=1..}] at @s run function onigoko:system/advance
 execute as @a[scores={leave_game=1..}] at @s run team join ice @s
 execute as @a[scores={leave_game=1..}] at @s run scoreboard players set @s leave_game 2
 scoreboard players set @a[scores={leave_game=2}] leave_game 0
+
