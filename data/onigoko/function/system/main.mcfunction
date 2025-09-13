@@ -276,9 +276,9 @@ execute if score mode settings matches 0 as @a[scores={death_interval=1}] positi
 execute if score mode settings matches 3 as @a[scores={death_interval=1}] positioned as @e[type=armor_stand,tag=keidorospawn] run tp @s ~ ~ ~
 execute if score mode settings matches 4 as @a[scores={death_interval=1}] positioned as @e[type=armor_stand,tag=spawn,limit=1] run tp @s ~ ~ ~
 
-execute as @a at @s if score water settings matches 0 if score death settings matches 1 if block ~ ~ ~ water run effect give @s poison 1 4 true
-execute as @a at @s if score water settings matches 0 if score death settings matches 1 if block ~ ~ ~ water run effect give @s instant_health 1 0 true
-execute as @a at @s if score water settings matches 0 if score death settings matches 0 if block ~ ~ ~ water run effect give @s wither 1 1 true
+execute as @a at @s if score water settings matches 0 if score death settings matches 1 if block ~ ~ ~ water run effect give @s[team=!oni] poison 1 4 true
+execute as @a at @s if score water settings matches 0 if score death settings matches 1 if block ~ ~ ~ water run effect give @s[team=!oni] instant_health 1 0 true
+execute as @a at @s if score water settings matches 0 if score death settings matches 0 if block ~ ~ ~ water run effect give @s[team=!oni] wither 1 1 true
 
 execute as @a at @s if score water settings matches 0 if score death settings matches 0 unless block ~ ~ ~ water run effect clear @s wither
 
