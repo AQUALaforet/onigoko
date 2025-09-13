@@ -26,7 +26,7 @@ kill @e[type=vex,tag=keidoroexitremove]
 execute as @a at @s run attribute @s attack_speed base set 100
 
 #エフェクト
-effect give @a[scores={food=..19}] saturation 1 127 true
+effect give @a[scores={food=..19}] saturation 1 1 true
 effect give @a[team=!oni,team=!nge] weakness 1 10 true
 
 #ゲーム設定検知
@@ -255,3 +255,27 @@ execute if score end settings matches 1 run function onigoko:system/end/start
 execute if score end settings matches 2 run function onigoko:system/end/main
 
 execute if score adjust_oni settings matches 0 run function onigoko:system/adjust_oni/main
+
+execute as @a at @s if score @s trigger_settings_death_enable matches 1 run function onigoko:system/settings/death/enable
+execute as @a at @s if score @s trigger_settings_death_disable matches 1 run function onigoko:system/settings/death/disable
+execute as @a[scores={trigger_settings_death_enable=1..}] at @s run scoreboard players set @s trigger_settings_death_enable 0
+execute as @a[scores={trigger_settings_death_disable=1..}] at @s run scoreboard players set @s trigger_settings_death_disable 0
+
+execute as @a at @s if score @s trigger_settings_water_enable matches 1 run function onigoko:system/settings/water/enable
+execute as @a at @s if score @s trigger_settings_water_disable matches 1 run function onigoko:system/settings/water/disable
+
+execute as @a[scores={trigger_settings_water_enable=1..}] at @s run scoreboard players set @s trigger_settings_water_enable 0
+execute as @a[scores={trigger_settings_water_disable=1..}] at @s run scoreboard players set @s trigger_settings_water_disable 0
+
+execute if score game settings matches 0 run scoreboard players set @a deathcount 0
+
+scoreboard players remove @a[scores={death_interval=1..}] death_interval 1
+execute if score mode settings matches 0 as @a[scores={death_interval=1}] positioned as @e[type=armor_stand,tag=onispawn,limit=1,sort=random] run tp @s ~ ~1 ~
+execute if score mode settings matches 3 as @a[scores={death_interval=1}] positioned as @e[type=armor_stand,tag=keidorospawn] run tp @s ~ ~ ~
+execute if score mode settings matches 4 as @a[scores={death_interval=1}] positioned as @e[type=armor_stand,tag=spawn,limit=1] run tp @s ~ ~ ~
+
+execute as @a at @s if score water settings matches 0 if score death settings matches 1 if block ~ ~ ~ water run effect give @s poison 1 4 true
+execute as @a at @s if score water settings matches 0 if score death settings matches 1 if block ~ ~ ~ water run effect give @s instant_health 1 0 true
+execute as @a at @s if score water settings matches 0 if score death settings matches 0 if block ~ ~ ~ water run effect give @s wither 1 1 true
+
+execute as @a at @s if score water settings matches 0 if score death settings matches 0 unless block ~ ~ ~ water run effect clear @s wither

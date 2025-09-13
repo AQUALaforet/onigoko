@@ -1,5 +1,5 @@
 #読み込み成功メッセージ
-tellraw @a ["",{"color":"green","text":"✔鬼ごっこデータパックの読み込みに成功しました。\nCreate by Forest_AQUA v1.2.1a"},{"text":"\n\n"}]
+tellraw @a ["",{"color":"green","text":"✔鬼ごっこデータパックの読み込みに成功しました。\nCreate by Forest_AQUA v2025.09.13"},{"text":"\n\n"}]
 execute as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 2 1
 
 #特殊アイテム削除
@@ -10,9 +10,11 @@ clear @a glass_pane
 scoreboard objectives remove time
 
 #gamerule
-gamerule fallDamage false
-gamerule fireDamage false
-gamerule drowningDamage false
+execute unless score death settings matches 0..1 run scoreboard players set death settings 1
+execute unless score water settings matches 0..1 run scoreboard players set death settings 1
+execute if score death settings matches 1 run gamerule fallDamage false
+execute if score death settings matches 1 run gamerule fireDamage false
+execute if score death settings matches 1 run gamerule drowningDamage false
 gamerule maxEntityCramming 0
 
 #Scoreboardを作成
@@ -30,6 +32,8 @@ scoreboard objectives add speed2 dummy
 scoreboard objectives add speed3 dummy
 scoreboard objectives add ice4 dummy
 scoreboard objectives add a_damage minecraft.custom:minecraft.damage_dealt
+scoreboard objectives add leave_game minecraft.custom:minecraft.leave_game
+scoreboard objectives add deathcount deathCount
 
 #scorebaardをリセット
 scoreboard players set min time 0
@@ -242,7 +246,10 @@ scoreboard objectives setdisplay sidebar game
 scoreboard objectives add spawn_inv dummy
 scoreboard players set @a spawn_inv 0
 
+gamerule keepInventory true
+
 scoreboard objectives add delay dummy
+scoreboard objectives add death_interval dummy
 
 scoreboard objectives add trigger_start trigger
 scoreboard objectives add trigger_stop trigger
@@ -296,3 +303,8 @@ scoreboard objectives add trigger_auto_start_player_set trigger
 scoreboard objectives add trigger_auto_start_time_set trigger
 scoreboard objectives add trigger_end_time trigger
 scoreboard objectives add trigger_end_time_set trigger
+
+scoreboard objectives add trigger_settings_death_enable trigger
+scoreboard objectives add trigger_settings_death_disable trigger
+scoreboard objectives add trigger_settings_water_disable trigger
+scoreboard objectives add trigger_settings_water_enable trigger

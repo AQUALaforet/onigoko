@@ -59,3 +59,9 @@ execute if score nge settings matches 0..1 if score oni settings matches 0 run s
 execute if score nge settings matches 0..1 if score oni settings matches 0 run team leave @a
 execute if score nge settings matches 0..1 if score oni settings matches 0 run execute as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 1 0.5 1
 execute if score nge settings matches 0..1 if score oni settings matches 0 run scoreboard players set game settings 0
+execute as @a[scores={deathcount=1..}] at @s run function onigoko:system/advancement/oni_hurt_nge_2
+
+execute as @a[scores={leave_game=1..}] at @s run gamemode spectator @s
+execute as @a[scores={leave_game=1..}] at @s run team leave @s
+execute as @a[scores={leave_game=1..}] at @s run scoreboard players set @s leave_game 2
+scoreboard players set @a[scores={leave_game=2}] leave_game 0
