@@ -1,6 +1,6 @@
 effect give @a[team=ice] resistance 1 5 true
-effect give @a[team=nge] weakness 1 10 true
 effect give @a[team=ice] weakness 1 10 true
+effect give @a[team=oni] resistance 1 255 true
 execute positioned as @e[type=armor_stand,tag=keidoroexit] if entity @p[team=ice,distance=..0.5] run tag @p[team=ice,distance=..1] add exit
 execute if entity @a[team=ice,tag=exit] run tellraw @a ["",{"selector":"@a[team=ice,tag=exit]","color":"gray"},{"text":"が脱走した!","color":"aqua"}]
 team join nge @a[tag=exit]
