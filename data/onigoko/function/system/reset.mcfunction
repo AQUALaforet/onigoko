@@ -11,7 +11,7 @@ scoreboard objectives remove time
 
 #gamerule
 execute unless score death settings matches 0..1 run scoreboard players set death settings 1
-execute unless score water settings matches 0..1 run scoreboard players set death settings 1
+execute unless score water settings matches 0..1 run scoreboard players set water settings 1
 execute if score death settings matches 1 run gamerule fallDamage false
 execute if score death settings matches 1 run gamerule fireDamage false
 execute if score death settings matches 1 run gamerule drowningDamage false
