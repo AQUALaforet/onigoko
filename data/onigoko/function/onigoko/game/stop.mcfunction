@@ -20,6 +20,7 @@ schedule clear onigoko:onigoko/countdown/3
 schedule clear onigoko:onigoko/countdown/4
 schedule clear onigoko:onigoko/countdown/5
 schedule clear onigoko:onigoko/countdown/10
+schedule clear onigoko:onigoko/game/30s
 tellraw @a {"color":"red","text":"ゲームを強制終了しました。"}
 execute positioned as @e[type=armor_stand,tag=lobbyspawn] run tp @a ~ ~ ~
 gamemode adventure @a[gamemode=!spectator]

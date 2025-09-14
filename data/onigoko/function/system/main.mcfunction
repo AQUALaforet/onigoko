@@ -29,7 +29,7 @@ execute as @a at @s run attribute @s attack_speed base set 100
 
 #エフェクト
 effect give @a[scores={food=..19}] saturation 1 1 true
-effect give @a[team=!oni,team=!nge] weakness 1 10 true
+effect give @a[team=!oni,team=!nge,gamemode=!creative,gamemode=!spectator] weakness 1 10 true
 
 #ゲーム設定検知
 execute store result score onikime settings if entity @e[type=armor_stand,tag=onikime]

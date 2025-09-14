@@ -1,4 +1,4 @@
-effect give @a[team=!oni] weakness 1 10 true
+effect give @a[team=!oni,gamemode=!creative,gamemode=!spectator] weakness 1 10 true
 #effect give @a[scores={health=..10}] instant_health 1 5 true
 
 execute as @a[scores={deathcount=1..}] at @s run function onigoko:system/advancement/oni_hurt_nge_2
