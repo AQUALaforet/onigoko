@@ -1,0 +1,13 @@
+execute store result storage game:settings oni int 1 run scoreboard players get oni settings
+execute store result storage game:settings onik int 1 run scoreboard players get onik settings
+execute store result storage game:settings nge int 1 run scoreboard players get nge settings
+execute store result storage game:settings ice int 1 run scoreboard players get ice settings
+execute store result storage game:settings count int 1 run scoreboard players get count settings
+execute store result storage game:settings countdown int 1 run scoreboard players get countdown time
+execute store result storage game:settings min int 1 run scoreboard players get min time
+execute store result storage game:settings sec int 1 run scoreboard players get sec time
+execute store result storage game:settings set_min int 1 run scoreboard players get min min
+execute store result storage game:settings set_sec int 1 run scoreboard players get sec sec
+execute store result storage game:settings auto_start_player int 1 run scoreboard players get auto_start_player settings
+execute store result storage game:settings auto_start_count int 1 run scoreboard players get auto_start_sec time
+execute store result storage game:settings end_sec int 1 run scoreboard players get end_sec time
