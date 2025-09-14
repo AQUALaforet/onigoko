@@ -1,6 +1,7 @@
 #減算
 
 execute if score game settings matches 2 run function onigoko:system/ingame
+execute if score game settings matches 1 run function onigoko:system/prepare_ingame
 execute if score game settings matches 1 run scoreboard players remove countdown2 time 1
 execute if score game settings matches 1 if score countdown time matches 1.. if score countdown2 time matches ..-1 run scoreboard players remove countdown time 1
 execute if score game settings matches 1 if score countdown time matches 0.. if score countdown2 time matches ..-1 run scoreboard players set countdown2 time 19
@@ -36,9 +37,6 @@ execute store result score nge settings if entity @a[team=nge]
 execute store result score count settings if entity @a[gamemode=!spectator]
 execute store result score ice settings if entity @a[team=ice]
 
-#ゲーム終了検知
-execute if score mode settings matches 0..4 if score game settings matches 2 if score nge settings matches ..0 run function onigoko:onigoko/game/oniend
-execute if score mode settings matches 0..4 if score game settings matches 2 if score min time matches ..0 if score sec time matches ..0 run function onigoko:onigoko/game/end
 
 #帽子
 clear @a[tag=inv] leather_helmet
@@ -51,12 +49,6 @@ execute if score mode settings matches 5 run item replace entity @a[tag=!inv,tag
 
 execute if score game settings matches 0..1 run effect give @a[team=oni] weakness 1 100 true
 #チェーン
-execute if score game settings matches 1..2 if score mode settings matches 0 run function onigoko:onigoko/game/start/hueoni
-execute if score game settings matches 1..2 if score mode settings matches 1 run function onigoko:onigoko/game/start/ice
-execute if score game settings matches 1..2 if score mode settings matches 2 run function onigoko:onigoko/game/start/normal
-execute if score game settings matches 1..2 if score mode settings matches 3 run function onigoko:onigoko/game/start/keidoro
-execute if score game settings matches 1..2 if score mode settings matches 4 run function onigoko:onigoko/game/start/kawari
-execute if score game settings matches 1..2 if score mode settings matches 5 run function onigoko:onigoko/game/start/tnttag
 
 execute unless score mode settings matches 1 as @a at @s run attribute @s knockback_resistance base set 0
 
@@ -87,18 +79,6 @@ clear @a[team=!oni] tnt
 #残り時間イベント
 ##時間追加
 execute if score game settings matches 2 run function onigoko:onigoko/main/timeadd
-
-##花火
-execute if score mode settings matches 0..4 if score firework settings matches 0 if score min time matches 5 if score sec time matches 0 if score sec2 time matches 0 run tellraw @a [{"text":"また、","color":"yellow"},{"text":"1","color":"green"},{"text":"分毎に逃走者の上に花火があがるようになりました。","color":"yellow"}]
-execute if score mode settings matches 0..4 if score firework settings matches 0 if score sec time matches 0 if score sec2 time matches 0 if score min time matches 4..5 run execute as @a[team=nge] at @s run summon firework_rocket ~ ~ ~ {Life:40,LifeTime:60,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"small_ball",has_twinkle:true,has_trail:true,colors:[65527]}]}}}}
-execute if score mode settings matches 0..4 if score firework settings matches 0 if score sec time matches 0 if score sec2 time matches 0 if score min time matches 1..3 run execute as @a[team=nge] at @s run summon firework_rocket ~ ~ ~ {Life:40,LifeTime:60,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"large_ball",has_twinkle:true,has_trail:true,colors:[65527]}]}}}}
-execute if score mode settings matches 0..4 if score firework settings matches 0 if score min time matches 0 if score sec time matches 30 if score sec2 time matches 0 run execute as @a[team=nge] at @s run summon firework_rocket ~ ~ ~ {Life:40,LifeTime:60,FireworksItem:{id:"minecraft:firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"large_ball",has_twinkle:true,has_trail:true,colors:[65527]}]}}}}
-execute if score mode settings matches 0..4 if score firework settings matches 0 if score min time matches 0 if score sec time matches 30 if score sec2 time matches 0 run execute as @a[team=nge] at @s run effect give @s glowing 30 0 true
-##残り時間
-execute if score mode settings matches 0..4 if score sec time matches 0 if score sec2 time matches 0 if score min time matches 1..3 run tellraw @a ["",{"text":"残り","color":"yellow"},{"score":{"name":"min","objective":"time"},"color":"green"},{"text":"分","color":"yellow"}]
-execute if score mode settings matches 0..4 if score min time matches 0 if score sec time matches 30 if score sec2 time matches 0 run tellraw @a [{"text":"残り","color":"yellow"},{"text":"30","color":"green"},{"text":"秒","color":"yellow"}]
-execute if score mode settings matches 0..4 if score poison settings matches 0 if score min time matches 0 if score sec time matches 30 if score sec2 time matches 0 run tellraw @a [{"text":"逃走者","color":"aqua"},{"text":"に毒が付与されます。","color":"yellow"}]
-execute if score mode settings matches 0..4 if score poison settings matches 0 if score min time matches 0 if score sec time matches 30 if score sec2 time matches 0 run effect give @a[team=nge] poison 30 0 true
 
 #透明化処理
 execute if score inv settings matches 0 run function onigoko:onigoko/main/invisible
@@ -135,7 +115,6 @@ execute store result storage game:settings auto_start_player int 1 run scoreboar
 execute store result storage game:settings auto_start_count int 1 run scoreboard players get auto_start_sec time
 execute store result storage game:settings end_sec int 1 run scoreboard players get end_sec time
 execute if score game settings matches 0 run function onigoko:onigoko/game/sidebar/prepare with storage game:settings
-execute if score game settings matches 1 run function onigoko:onigoko/game/sidebar/wait_ingame with storage game:settings
 
 execute as @a[scores={delay=0}] at @s run scoreboard players add @s delay 1
 execute as @a[scores={delay=1..}] at @s run function onigoko:system/advancement/oni_hurt_nge_2
