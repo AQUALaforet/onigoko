@@ -1,4 +1,5 @@
 scoreboard players set game settings 0
+scoreboard players set @s trigger_stop 0
 team leave @a
 #特殊アイテム削除
 clear @a feather

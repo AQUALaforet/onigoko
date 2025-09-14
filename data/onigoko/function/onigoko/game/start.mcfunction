@@ -1,5 +1,6 @@
 title @a times 0 25 0
 team leave @a
+scoreboard players set @s trigger_start 0
 #ランダム鬼指定
 execute if score random settings matches 0 if score mode settings matches 0..3 run scoreboard players operation oni_random settings = onik settings
 execute if score random settings matches 0 if score mode settings matches 0..3 run function onigoko:system/select_oni/random

@@ -1,11 +1,6 @@
 #減算
-execute if score game settings matches 2 if score min time matches 0 if score sec time matches 0 if score sec2 time matches 0 run scoreboard players set sec2 time 1
-execute if score game settings matches 2 if score min time matches ..-1 run scoreboard players set min time 0
-execute if score game settings matches 2 run scoreboard players remove sec2 time 1
-execute if score game settings matches 2 if score sec2 time matches ..-1 run scoreboard players remove sec time 1
-execute if score game settings matches 2 if score sec2 time matches ..-1 run scoreboard players set sec2 time 19
-execute if score game settings matches 2 if score sec time matches ..-1 run scoreboard players remove min time 1
-execute if score game settings matches 2 if score sec time matches ..-1 run scoreboard players set sec time 59
+
+execute if score game settings matches 2 run function onigoko:system/ingame
 execute if score game settings matches 1 run scoreboard players remove countdown2 time 1
 execute if score game settings matches 1 if score countdown time matches 1.. if score countdown2 time matches ..-1 run scoreboard players remove countdown time 1
 execute if score game settings matches 1 if score countdown time matches 0.. if score countdown2 time matches ..-1 run scoreboard players set countdown2 time 19
@@ -141,7 +136,6 @@ execute store result storage game:settings auto_start_count int 1 run scoreboard
 execute store result storage game:settings end_sec int 1 run scoreboard players get end_sec time
 execute if score game settings matches 0 run function onigoko:onigoko/game/sidebar/prepare with storage game:settings
 execute if score game settings matches 1 run function onigoko:onigoko/game/sidebar/wait_ingame with storage game:settings
-execute if score game settings matches 2 run function onigoko:onigoko/game/sidebar/ingame with storage game:settings
 
 execute as @a[scores={delay=0}] at @s run scoreboard players add @s delay 1
 execute as @a[scores={delay=1..}] at @s run function onigoko:system/advancement/oni_hurt_nge_2
@@ -149,107 +143,7 @@ execute as @a[scores={delay=1..}] at @s run scoreboard players set @s delay 0
 
 execute if score game settings matches 0 run tag @a[tag=tnt2] remove tnt2
 
-execute as @a at @s if score @s trigger_start matches 1 run function onigoko:onigoko/game/start
-execute as @a[scores={trigger_start=1..}] at @s run scoreboard players set @s trigger_start 0
-
-execute as @a at @s if score @s trigger_stop matches 1 run function onigoko:onigoko/game/stop
-execute as @a[scores={trigger_stop=1..}] at @s run scoreboard players set @s trigger_stop 0
-
-execute as @a at @s if score @s trigger_onikime matches 1 run function onigoko:onigoko/game/onikime
-execute as @a[scores={trigger_onikime=1..}] at @s run scoreboard players set @s trigger_onikime 0
-
-execute as @a at @s if score @s trigger_tpspawn matches 1 run function onigoko:system/command/teleportspawn
-execute as @a[scores={trigger_tpspawn=1..}] at @s run scoreboard players set @s trigger_tpspawn 0
-
-execute as @a at @s if score @s trigger_mode_0 matches 1 run function onigoko:onigoko/settings/mode/hueoni
-execute as @a at @s if score @s trigger_mode_1 matches 1 run function onigoko:onigoko/settings/mode/ice
-execute as @a at @s if score @s trigger_mode_2 matches 1 run function onigoko:onigoko/settings/mode/kawari
-execute as @a at @s if score @s trigger_mode_3 matches 1 run function onigoko:onigoko/settings/mode/keidoro
-execute as @a at @s if score @s trigger_mode_4 matches 1 run function onigoko:onigoko/settings/mode/normal
-execute as @a at @s if score @s trigger_mode_5 matches 1 run function onigoko:onigoko/settings/mode/tnttag
-execute as @a[scores={trigger_mode_0=1..}] at @s run scoreboard players set @s trigger_mode_0 0
-execute as @a[scores={trigger_mode_1=1..}] at @s run scoreboard players set @s trigger_mode_1 0
-execute as @a[scores={trigger_mode_2=1..}] at @s run scoreboard players set @s trigger_mode_2 0
-execute as @a[scores={trigger_mode_3=1..}] at @s run scoreboard players set @s trigger_mode_3 0
-execute as @a[scores={trigger_mode_4=1..}] at @s run scoreboard players set @s trigger_mode_4 0
-execute as @a[scores={trigger_mode_5=1..}] at @s run scoreboard players set @s trigger_mode_5 0
-
-execute as @a at @s if score @s trigger_settings_oni matches 1 run function onigoko:onigoko/settings/oni
-execute as @a at @s if score @s trigger_settings_item matches 1 run function onigoko:onigoko/settings/item
-execute as @a at @s if score @s trigger_settings_other matches 1 run function onigoko:onigoko/settings/other
-execute as @a at @s if score @s trigger_settings_setitem matches 1 run function onigoko:onigoko/item/set_item
-execute as @a[scores={trigger_settings_oni=1..}] at @s run scoreboard players set @s trigger_settings_oni 0
-execute as @a[scores={trigger_settings_item=1..}] at @s run scoreboard players set @s trigger_settings_item 0
-execute as @a[scores={trigger_settings_other=1..}] at @s run scoreboard players set @s trigger_settings_other 0
-execute as @a[scores={trigger_settings_setitem=1..}] at @s run scoreboard players set @s trigger_settings_setitem 0
-
-execute as @a at @s if score @s trigger_firework_disable matches 1 run function onigoko:onigoko/settings/disable/firework
-execute as @a at @s if score @s trigger_firework_enable matches 1 run function onigoko:onigoko/settings/enable/firework
-execute as @a at @s if score @s trigger_poison_disable matches 1 run function onigoko:onigoko/settings/disable/poison
-execute as @a at @s if score @s trigger_poison_enable matches 1 run function onigoko:onigoko/settings/enable/poison
-execute as @a at @s if score @s trigger_glowing_disable matches 1 run function onigoko:onigoko/settings/disable/glowing
-execute as @a at @s if score @s trigger_glowing_enable matches 1 run function onigoko:onigoko/settings/enable/glowing
-execute as @a at @s if score @s trigger_random_disable matches 1 run function onigoko:onigoko/settings/disable/random
-execute as @a at @s if score @s trigger_random_enable matches 1 run function onigoko:onigoko/settings/enable/random
-execute as @a[scores={trigger_firework_disable=1..}] at @s run scoreboard players set @s trigger_firework_disable 0
-execute as @a[scores={trigger_firework_enable=1..}] at @s run scoreboard players set @s trigger_firework_enable 0
-execute as @a[scores={trigger_poison_disable=1..}] at @s run scoreboard players set @s trigger_poison_disable 0
-execute as @a[scores={trigger_poison_enable=1..}] at @s run scoreboard players set @s trigger_poison_enable 0
-execute as @a[scores={trigger_glowing_disable=1..}] at @s run scoreboard players set @s trigger_glowing_disable 0
-execute as @a[scores={trigger_glowing_enable=1..}] at @s run scoreboard players set @s trigger_glowing_enable 0
-execute as @a[scores={trigger_random_disable=1..}] at @s run scoreboard players set @s trigger_random_disable 0
-execute as @a[scores={trigger_random_enable=1..}] at @s run scoreboard players set @s trigger_random_enable 0
-
-execute as @a at @s if score @s trigger_settings_set_oni_player matches 1.. run function onigoko:system/settings/set_oni_player
-
-execute as @a at @s if score @s trigger_settings_oni_player matches 1 run function onigoko:onigoko/settings/oni_player
-execute as @a[scores={trigger_settings_oni_player=1..}] at @s run scoreboard players set @s trigger_settings_oni_player 0
-
-
-execute as @a at @s if score @s trigger_settings_time matches 1 run function onigoko:system/settings/time/main with storage game:settings
-execute as @a at @s if score @s trigger_settings_time_min matches 1 run function onigoko:system/settings/time/min
-execute as @a at @s if score @s trigger_settings_time_sec matches 1 run function onigoko:system/settings/time/sec
-
-execute as @a[scores={trigger_settings_time=1..}] at @s run scoreboard players set @s trigger_settings_time 0
-execute as @a[scores={trigger_settings_time_min=1..}] at @s run scoreboard players set @s trigger_settings_time_min 0
-execute as @a[scores={trigger_settings_time_sec=1..}] at @s run scoreboard players set @s trigger_settings_time_sec 0
-
-execute as @a at @s if score @s trigger_settings_time_min_set matches 0.. run function onigoko:system/settings/time/min_set
-execute as @a at @s if score @s trigger_settings_time_sec_set matches 0.. run function onigoko:system/settings/time/sec_set
-
-execute as @a at @s if score @s trigger_inv_disable matches 1 run function onigoko:onigoko/settings/disable/inv
-execute as @a at @s if score @s trigger_inv_enable matches 1 run function onigoko:onigoko/settings/enable/inv
-execute as @a at @s if score @s trigger_speed_disable matches 1 run function onigoko:onigoko/settings/disable/speed
-execute as @a at @s if score @s trigger_speed_enable matches 1 run function onigoko:onigoko/settings/enable/speed
-execute as @a[scores={trigger_inv_disable=1..}] at @s run scoreboard players set @s trigger_inv_disable 0
-execute as @a[scores={trigger_inv_enable=1..}] at @s run scoreboard players set @s trigger_inv_enable 0
-execute as @a[scores={trigger_speed_disable=1..}] at @s run scoreboard players set @s trigger_speed_disable 0
-execute as @a[scores={trigger_speed_enable=1..}] at @s run scoreboard players set @s trigger_speed_enable 0
-
-execute as @a at @s if score @s trigger_auto_start matches 1 run function onigoko:system/settings/auto_start
-execute as @a[scores={trigger_auto_start=1..}] at @s run scoreboard players set @s trigger_auto_start 0
-
-execute as @a at @s if score @s trigger_auto_start_enable matches 1 run function onigoko:system/settings/auto_start/enable
-execute as @a at @s if score @s trigger_auto_start_disable matches 1 run function onigoko:system/settings/auto_start/disable
-execute as @a at @s if score @s trigger_adjust_oni_enable matches 1 run function onigoko:system/settings/adjust_oni/enable
-execute as @a at @s if score @s trigger_adjust_oni_disable matches 1 run function onigoko:system/settings/adjust_oni/disable
-
-execute as @a[scores={trigger_auto_start_enable=1..}] at @s run scoreboard players set @s trigger_auto_start_enable 0
-execute as @a[scores={trigger_auto_start_disable=1..}] at @s run scoreboard players set @s trigger_auto_start_disable 0
-execute as @a[scores={trigger_adjust_oni_enable=1..}] at @s run scoreboard players set @s trigger_adjust_oni_enable 0
-execute as @a[scores={trigger_adjust_oni_disable=1..}] at @s run scoreboard players set @s trigger_adjust_oni_disable 0
-
-execute as @a at @s if score @s trigger_auto_start_player matches 1 run function onigoko:system/settings/auto_start_player
-execute as @a at @s if score @s trigger_auto_start_time matches 1 run function onigoko:system/settings/auto_start_time
-execute as @a at @s if score @s trigger_end_time matches 1 run function onigoko:system/settings/end_time
-
-execute as @a[scores={trigger_auto_start_player=1..}] at @s run scoreboard players set @s trigger_auto_start_player 0
-execute as @a[scores={trigger_auto_start_time=1..}] at @s run scoreboard players set @s trigger_auto_start_time 0
-execute as @a[scores={trigger_end_time=1..}] at @s run scoreboard players set @s trigger_end_time 0
-
-execute as @a at @s if score @s trigger_auto_start_player_set matches 2.. run function onigoko:system/settings/set_score/auto_start_player_set
-execute as @a at @s if score @s trigger_auto_start_time_set matches 2.. run function onigoko:system/settings/set_score/auto_start_time_set
-execute as @a at @s if score @s trigger_end_time_set matches 0.. run function onigoko:system/settings/set_score/end_time_set
+function onigoko:system/trigger
 
 execute if score auto_start settings matches 0 if score game settings matches 0 if score end settings matches 0 run function onigoko:system/auto_start/main
 
@@ -257,17 +151,6 @@ execute if score end settings matches 1 run function onigoko:system/end/start
 execute if score end settings matches 2 run function onigoko:system/end/main
 
 execute if score adjust_oni settings matches 0 run function onigoko:system/adjust_oni/main
-
-execute as @a at @s if score @s trigger_settings_death_enable matches 1 run function onigoko:system/settings/death/enable
-execute as @a at @s if score @s trigger_settings_death_disable matches 1 run function onigoko:system/settings/death/disable
-execute as @a[scores={trigger_settings_death_enable=1..}] at @s run scoreboard players set @s trigger_settings_death_enable 0
-execute as @a[scores={trigger_settings_death_disable=1..}] at @s run scoreboard players set @s trigger_settings_death_disable 0
-
-execute as @a at @s if score @s trigger_settings_water_enable matches 1 run function onigoko:system/settings/water/enable
-execute as @a at @s if score @s trigger_settings_water_disable matches 1 run function onigoko:system/settings/water/disable
-
-execute as @a[scores={trigger_settings_water_enable=1..}] at @s run scoreboard players set @s trigger_settings_water_enable 0
-execute as @a[scores={trigger_settings_water_disable=1..}] at @s run scoreboard players set @s trigger_settings_water_disable 0
 
 execute if score game settings matches 0 run scoreboard players set @a deathcount 0
 
