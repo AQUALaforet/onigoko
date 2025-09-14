@@ -47,3 +47,4 @@ execute if score mode settings matches 5 run function onigoko:onigoko/game/tntta
 execute as @a at @s run playsound entity.ender_dragon.ambient player @s ~ ~ ~ 1 1 1
 execute if score mode settings matches 0..4 if score inv settings matches 0 run item replace entity @a hotbar.1 with feather[custom_name={"color":"aqua","italic":false,"text":"俊敏"},lore=[{"color":"gray","italic":false,"text":"持っている間加速することができる"},{"color":"gray","italic":false,"text":"ただし時間が切れると使うことはできない"}]] 1
 execute if score mode settings matches 0..4 if score speed settings matches 0 run item replace entity @a hotbar.7 with glass_pane[custom_name={"color":"aqua","italic":false,"text":"透明化"},lore=[{"color":"gray","italic":false,"text":"所持している間、透明になることができる"},{"color":"gray","italic":false,"text":"スロットを移動すると透明化は解除される"},{"color":"gray","italic":false,"text":"ただし時間が切れると使うことはできない"}]] 1
+execute as @a[gamemode=!spectator] at @s run gamemode adventure @s
