@@ -1,12 +1,12 @@
 {
   "type": "minecraft:multi_action",
-  "title": "鬼ごっこ v2025.09.13",
+  "title": "鬼ごっこ 設定",
   "external_title": "",
   "body": [
     {
       "type": "minecraft:plain_message",
       "contents": {
-        "text": "設定"
+        "text": "メニュー"
       }
     }
   ],
