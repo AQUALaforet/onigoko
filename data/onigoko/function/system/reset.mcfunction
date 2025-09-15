@@ -1,5 +1,5 @@
 #読み込み成功メッセージ
-tellraw @a ["",{"color":"green","text":"✔鬼ごっこデータパックの読み込みに成功しました。\nCreate by Forest_AQUA v2025.09.14"},{"text":"\n\n"}]
+tellraw @a ["",{"color":"green","text":"✔鬼ごっこデータパックの読み込みに成功しました。\nCreate by Forest_AQUA v2025.09.15"},{"text":"\n\n"}]
 execute as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 2 1
 
 #特殊アイテム削除
