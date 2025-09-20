@@ -1,18 +1,17 @@
-name: Release ZIP
+name: Release ZIP by Myself
 
 on:
-  push:
-    tags:
-      - 'v*'  # バージョンタグがpushされたときに実行
+  release:
+    types: [published]  # 公開リリース時にトリガー
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.release.author.login == 'AQUALaforet'  # ここで自分のユーザー名を指定
+
     steps:
-      # リポジトリをチェックアウト
       - uses: actions/checkout@v4
 
-      # ZIPファイル作成
       - name: Create ZIP
         uses: thedoctor0/zip-release@main
         with:
@@ -20,8 +19,7 @@ jobs:
           filename: onigoko.zip
           exclusions: '*.git* /*node_modules/* .editorconfig'
 
-      # GitHub Release作成＆ZIPファイルアップロード
-      - name: Create GitHub Release & Upload ZIP
+      - name: Upload ZIP to Release
         uses: softprops/action-gh-release@v2
         with:
           files: onigoko.zip
