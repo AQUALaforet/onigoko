@@ -1,0 +1,29 @@
+name: Release ZIP
+
+on:
+  push:
+    tags:
+      - 'v*'  # バージョンタグがpushされたときに実行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # リポジトリをチェックアウト
+      - uses: actions/checkout@v4
+
+      # ZIPファイル作成
+      - name: Create ZIP
+        uses: thedoctor0/zip-release@v0.7.5
+        with:
+          type: 'zip'
+          filename: onigoko.zip
+          exclusions: '*.git* /*node_modules/* .editorconfig'
+
+      # GitHub Release作成＆ZIPファイルアップロード
+      - name: Create GitHub Release & Upload ZIP
+        uses: softprops/action-gh-release@v2
+        with:
+          files: onigoko.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

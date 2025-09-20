@@ -1,7 +1,7 @@
 execute as @a at @s unless score mode settings matches 5 run playsound entity.experience_orb.pickup player @s ~ ~ ~ 1 1 1
 execute if score mode settings matches 0..4 run tellraw @a {"color":"yellow","text":"鬼が開放されました。"}
 execute if score mode settings matches 2 if score random settings matches 1 run tellraw @a {"color":"yellow","text":"鬼が開放されました。"}
-execute if score mode settings matches 0..4 run execute positioned as @e[type=armor_stand,tag=onispawn,limit=1,sort=random] run tp @a[team=oni] ~ ~ ~
+execute if score mode settings matches 0..4 positioned as @e[type=armor_stand,tag=onispawn,limit=1,sort=random] run tp @a[team=oni] ~ ~ ~
 scoreboard players set game settings 2
 execute if score inv settings matches 0 if score mode settings matches 0..3 run scoreboard players set @a[team=nge] inv 0
 execute if score inv settings matches 0 if score mode settings matches 0..3 run scoreboard players operation @a[team=nge] inv2 = ninv2 settings

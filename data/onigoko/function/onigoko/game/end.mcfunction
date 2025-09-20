@@ -1,5 +1,5 @@
 execute if score game settings matches 2 if score oni settings matches 1.. run tellraw @a ["",{"color":"yellow","text":"ゲーム終了 "},{"color":"aqua","text":"逃走者"},{"color":"yellow","text":"の勝利!\n-----生存していたプレイヤー-----"},{"text":"\n"},{"color":"aqua","selector":"@a[team=nge]"},{"text":"\n "}]
-execute if score game settings matches 2 if score oni settings matches 1.. run execute as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 1 0.5 1
+execute if score game settings matches 2 if score oni settings matches 1.. as @a at @s run playsound entity.player.levelup player @s ~ ~ ~ 1 0.5 1
 effect give @a[team=nge] glowing 30 0 true
 scoreboard players set min time 0
 scoreboard players set sec time 0
